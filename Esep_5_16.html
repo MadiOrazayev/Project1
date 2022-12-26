@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>
+            Esep_5_16
+        </title>
+    </head>
+    <body>
+        <script>
+            minutes=parseInt(prompt("Please enter minutes:"))
+            hours=(minutes-minutes%60)/60
+            minutes=minutes%60
+            if(minutes!=0){alert(`${hours} hours and ${minutes} minutes`)}
+            else{alert(`ONLY ${hours} hours`)}
+        </script>
+    </body>
+</html>

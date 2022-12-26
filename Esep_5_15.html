@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>
+            Esep_5_15
+        </title>
+    </head>
+    <body>
+        <script>
+            amount=parseInt(prompt("Please enter amount:"))
+            dollars=(amount-amount%380)/380
+            cents=(amount%380)/380
+            cents=cents.toFixed(2)*100
+            if(cents!=0){alert(`${dollars} USD and ${cents} cents`)}
+            else{alert(`ONLY ${dollars} USD`)}
+        </script>
+    </body>
+</html>
