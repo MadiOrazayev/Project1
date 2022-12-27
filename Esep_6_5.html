@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+            Esep_6_5
+        </title>
+        <body>
+            <script>
+                users = [
+                            {login:"ilyas", password: "qwerty"},
+                            {login:"eldar", password: "qqqqq"},
+                            {login:"assylkhan", password: "qweqwe"},
+                            {login:"anel", password: "asdasd"},
+                            {login:"alibek", password: "aaaaaa"}
+                        ]
+                login=prompt("Enter login:")
+                password=prompt("Enter password:")
+                k=0
+                for(a of users){                    
+                    if(login==a.login && password==a.password){
+                        k=1
+                    }
+                }                
+                if(k==1){
+                    alert("Welcome, you are authenticated")
+                }else{
+                    alert("User not found")
+                }
+            </script>
+        </body>
+    </head>
+</html>

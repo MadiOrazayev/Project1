@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>
+            Esep_6_6
+        </title>
+        <body>
+            <script>
+                books = [
+                            {bookName:"Harry Potter and the Philosopher's Stone",autor:"Joanne Rowling", ISBN:"1233123", price:"50$"},
+                            {bookName:"Harry Potter and the Chamber of Secrets",autor:"Joanne Rowling", ISBN:"222332", price:"40$"},
+                            {bookName:"Harry Potter and the Prisoner of Azkaban",autor:"Joanne Rowling", ISBN:"452323", price:"55$"},
+                            {bookName:"Яркие люди Древней Руси",autor:"Борис Акунин", ISBN:"222332", price:"5$"},
+                            {bookName:"Чагин",autor:"Евгений Водолазкин", ISBN:"452323", price:"free"},
+                        ]
+                autor=prompt("Please enter autor")
+                let s=""
+                for(a of books){
+                    if(autor==a.autor) s+=a.bookName +" - "+a.autor+" - "+a.ISBN+" - "+a.price+"\n"
+                }     
+                alert(s);
+            </script>
+        </body>
+    </head>
+</html>
