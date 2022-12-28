@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>
+            Esep_7_6
+        </title>
+        <body>
+            <script>
+                let students = []
+                let student={name:"", surname: "", gpa: 0}
+                vybor1=-1
+                while(vybor1!=0){
+                    vybor1=parseInt(prompt("PRESS 1 TO ADD STUDENT\n"
+                                +"PRESS 2 TO LIST STUDENT\n"
+                                +"PRESS 0 TO EXIT"))                
+                    
+                    if(vybor1==1) {                        
+                        student.name=prompt("INSERT NAME:")
+                        student.surname=prompt("INSERT SURNAME:")
+                        student.gpa=prompt("INSERT GPA:")
+                        students.push(student)
+                    }
+                    if(vybor1==2) {
+                        let s=""
+                        for(student of students){
+                            s+=student.name + "-" + student.surname + "-" + student.gpa +"\n"
+                        }
+                        alert(s)
+                    }                
+                }
+            </script>
+        </body>
+    </head>
+</html>

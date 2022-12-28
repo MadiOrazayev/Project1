@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>
+            Esep_7_5
+        </title>
+        <body>
+            <script>
+                cars = [
+{name:"Toyota", price: 12000000, year: 2015, volume: 2.2},
+{name:"Mercedes", price: 70000000, year: 2018, volume: 3.8},
+{name:"Toyota", price: 7000000, year: 2013, volume: 2.0},
+{name:"BMW", price: 11000000, year: 2011, volume: 3.0},
+{name:"Lexus", price: 60000000, year: 2017 ,volume: 5.7}
+];
+                vybor1=prompt("INSERT [1] TO SEARCH BY NAME\n"
+                                +"INSERT [2] TO SEARCH BY YEAR\n"
+                                +"INSERT [3] TO SEARCH BY ENGINE VOLUME\n"
+                                +"INSERT [4] TO SEARCH BY PRICE\n"
+                                +"INSERT [0] TO EXIT")
+                let s=""
+                if(vybor1==1) {
+                    name=prompt("INSERT NAME OF CAR:")
+                    for(car of cars){
+                        if(name==car.name){
+                            s+=car.name + "-" + car.year + "-" + car.volume + " liters" + "-" + car.price +" KZT\n"
+                        }
+                    }
+                }
+                if(vybor1==2) {
+                    year_1=prompt("INSERT YEAR START FROM:")
+                    year_2=prompt("INSERT YEAR ENDS FROM:")
+                    for(car of cars){
+                        if(year_1<=car.year && car.year<=year_2){
+                            s+=car.name + "-" + car.year + "-" + car.volume + " liters" + "-" + car.price +" KZT\n"
+                        }
+                    }
+                }
+                if(vybor1==3) {
+                    vol_1=prompt("INSERT ENGINE VOLUME START FROM:")
+                    vol_2=prompt("INSERT ENGINE VOLUME ENDS FROM:")
+                    for(car of cars){
+                        if(vol_1<=car.volume && car.volume<=vol_2){
+                            s+=car.name + "-" + car.year + "-" + car.volume + " liters" + "-" + car.price +" KZT\n"
+                        }
+                    }
+                }
+                if(vybor1==4) {
+                    price_1=prompt("INSERT PRICE START FROM:")
+                    price_2=prompt("INSERT PRICE ENDS FROM:")
+                    for(car of cars){
+                        if(price_1<=car.price && car.price<=price_2){
+                            s+=car.name + "-" + car.year + "-" + car.volume + " liters" + "-" + car.price +" KZT\n"
+                        }
+                    }
+                }
+                alert(s);
+            </script>
+        </body>
+    </head>
+</html>
