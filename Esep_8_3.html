@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>
+            Esep_8_3
+        </title>
+        <style>
+            .line{
+                width: 30%;
+                display: flex;
+                justify-content: space-between;
+                margin: 3%;
+            }
+            .right{
+                width:60%;
+                display: flex;
+                justify-content: space-between;
+            }
+            input{
+                width:15%;
+            }
+            .name{
+                width:100%;
+                margin: 0;
+            }
+            button{
+                margin-left: 3%;
+                background-color: blue;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="line">
+            <div>CARD:</div>
+            <div class="right">
+                <input type="text" id="first">
+                <input type="text" id="second">
+                <input type="text" id="third">
+                <input type="text" id="forth">
+            </div>
+        </div>
+        <div class="line">
+            <div>NAME SURNAME:</div>
+            <div class="right">
+                <input type="text" class="name" id="name">
+            </div>
+        </div>
+        <div class="line">
+            <div>CVV:</div>
+            <div class="right">
+                <input type="password" id="cvv">
+            </div>
+        </div>
+        <button id="btn">COMPLETE</button>
+        <script>
+            btn.onclick=check
+            function check(){
+                let cards=[{num:"4406285836468998", name:"Sapar Saparovich", cvv:"028"}]
+                let num=document.getElementById("first").value+document.getElementById("second").value+document.getElementById("third").value+document.getElementById("forth").value
+                let name=document.getElementById('name').value
+                let cvv=document.getElementById('cvv').value
+                exist=0
+                for(card of cards){
+                    if(card.name==name && card.num==num && card.cvv==cvv){
+                        exist=1
+                    }
+                }
+                if(exist==1){
+                    alert("Transaction completed")
+                }else{
+                    alert("Invalid Data")
+                }
+            }
+        </script>
+    </body>
+</html>

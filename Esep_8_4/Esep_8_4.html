@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>
+            Esep_8_4
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            .main{
+                width:40%;
+            }
+            .pic{
+                display: flex;
+                height: 50%;
+            }
+            img{
+                width:100%;
+            }
+            .buttons{
+                display: flex;
+                justify-content: center;
+            }
+            button{
+                margin: 3%;
+                padding: 1%;
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="pic">
+                <img src="Esep_8_4_1.jpg" alt="" id="pic">
+            </div>
+            <div class="buttons">
+                <button id="back">&#8592 BACK</button>
+                <button id="next">NEXT &#8594</button>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("click",
+            function slide(){
+                let s=document.getElementById('pic').src                
+                if(event.target.id=="back") s=s.slice(0,s.length-5) + (parseInt(s.charAt(s.length-5))-1) +s.slice(s.length-4,s.length)
+                if(event.target.id=="next") s=s.slice(0,s.length-5) + (parseInt(s.charAt(s.length-5))+1) +s.slice(s.length-4,s.length)
+                document.getElementById('pic').src=s
+            })
+        </script>
+    </body>
+</html>

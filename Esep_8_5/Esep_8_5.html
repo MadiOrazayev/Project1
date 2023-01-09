@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>
+            Esep_8_5
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            .main{
+                width:60%;
+            }
+            .pic{
+                display: flex;
+                height: 70%;
+            }
+            .pic img{
+                width:100%;
+            }
+            .pics{
+                display: flex;
+                justify-content: space-between;
+                margin: 1%;
+                margin-top: 3%;
+            }
+            .pics img{
+                width: 15%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="pic">
+                <img src="Esep_8_5_1.jpg" alt="" id="pic">
+            </div>
+            <div class="pics">
+                <img src="Esep_8_5_1.jpg" alt="" id="pic1">
+                <img src="Esep_8_5_2.jpg" alt="" id="pic2">
+                <img src="Esep_8_5_3.jpg" alt="" id="pic3">
+                <img src="Esep_8_5_4.jpg" alt="" id="pic4">
+                <img src="Esep_8_5_5.jpg" alt="" id="pic5">
+                <img src="Esep_8_5_6.jpg" alt="" id="pic6">
+            </div>
+        </div>
+        <script>
+            document.addEventListener("click",
+            function slide(){
+                for(let i=1; i<7; i++){
+                    if(event.target.id=="pic"+i) show(i)
+                }               
+            })
+            function show(num){
+                let s=document.getElementById('pic').src
+                s=s.slice(0,s.length-5) + num +s.slice(s.length-4,s.length)
+                document.getElementById('pic').src=s
+            }
+        </script>
+    </body>
+</html>

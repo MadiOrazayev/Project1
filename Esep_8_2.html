@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>
+            Esep_8_2
+        </title>
+        <style>
+            body{
+                padding: 3%;
+            }
+            span{
+                margin: 5%;
+            }
+            button{
+                padding-left: 3%;
+                padding-right: 3%;
+                background-color: blue;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="incr">+</button>
+        <span id="val">0</span>
+        <button id="decr">-</button>
+        <script>            
+            document.addEventListener("click",
+            function calc(){
+                if(event.target.id=="incr") document.getElementById('val').innerText=parseInt(document.getElementById('val').innerText)+1
+                if(event.target.id=="decr") document.getElementById('val').innerText=parseInt(document.getElementById('val').innerText)-1
+            })
+        </script>
+    </body>
+</html>

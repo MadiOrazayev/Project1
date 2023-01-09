@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+            Esep-8_1
+        </title>
+        <style>
+            .login_box{
+                display: flex;
+                flex-wrap: wrap;   
+            }
+            .line{
+                width:20%;
+                margin: 1%;
+                margin-right: 70%;
+                display: flex;
+                justify-content: space-between;
+            }
+            button{
+                margin-left: 70%;
+            }
+        </style>
+        <body>
+            <div class="login_box">
+                <div class="line">
+                    <label for="login">LOGIN: </label>
+                    <input type="text" placeholder="Input login" id="login">
+                </div>
+                <div class="line">
+                    <label for="password">PASSWORD: </label>                
+                    <input type="text" placeholder="Input password" id="password">                    
+                </div>
+                <div class="line" id="button">                     
+                    <button>SIGN IN</button>
+                </div>
+            </div>
+            <script>
+                function show(){
+                users=[ {login:"user1", password:"password1"},
+                    {login:"user2", password:"password2"},
+                    {login:"user3", password:"password3"},
+                    {login:"user4", password:"password4"},
+                    {login:"user5", password:"password5"},
+                    {login:"user6", password:"password6"}
+                ];
+                exist=0
+                for(user of users){
+                    if(document.getElementById("login").value==user.login && document.getElementById("password").value==user.password){
+                        exist=1
+                    }
+                }
+                if(exist==1){
+                    document.body.innerHTML = "You are authenticated"
+                }else{
+                    let a=document.getElementsByTagName('input')
+                    for(b of a){
+                        b.style.border='2px red solid'
+                    }
+                }
+                }
+                button.onclick = show;
+            </script>
+        </body>
+    </head>
+</html>

@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>
+            Esep_8_6
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            input{
+                width: 100%;
+            }
+            .form{
+                width:30%;
+            }
+            input{                
+                padding: 1%;
+            }
+            .form div{
+                color: red;
+                margin-bottom: 5%;
+            }
+            button{
+                padding: 1%;
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form">
+            Email:
+            <input type="text" id="mail">
+            <div id="errorMail"></div>
+            Password:
+            <input type="password" id="password">
+            <div id="errorPassword"></div>
+            Retype password:
+            <input type="password" id="retype">
+            <div id="errorRetype"></div>
+            <button>REGISTER</button>
+        </div>
+        <script>
+            document.addEventListener('keyup', check)
+            function check(){
+                if(event.target.id=='mail'){
+                    let mails=["a1@mail.ru", "a2@mail.ru", "a3@mail.ru", "a4@mail.ru", "a5@mail.ru", "a6@mail.ru", "a7@mail.ru", "a8@mail.ru", "a9@mail.ru", "a10@mail.ru"]
+                    let exist=false
+                    for(let m of mails){
+                        if(m==document.getElementById('mail').value){
+                            exist=true
+                        }
+                    }
+                    if(exist){document.getElementById('errorMail').innerText="Email already in use"}
+                    else {document.getElementById('errorMail').innerText=""}
+                }
+                if(event.target.id=='password'){
+                    if(document.getElementById('password').value.length<6) {document.getElementById('errorPassword').innerText="Password must be bigger than 6 digits"}
+                    else {document.getElementById('errorPassword').innerText=""}                    
+                }
+                if(event.target.id=='password' || event.target.id=='retype'){
+                    if(document.getElementById('password').value!=document.getElementById('retype').value) {document.getElementById('errorRetype').innerText="Password re-entry do not match"}
+                    else {document.getElementById('errorRetype').innerText=""}
+                }
+            }
+        </script>
+    </body>
+</html>

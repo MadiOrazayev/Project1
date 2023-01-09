@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>
+            Sprint_3
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            .main{
+                width:70%;
+                display:flex;
+                justify-content: space-between;
+                padding-top: 3%;
+            }
+            .block1{
+                width:22%;
+            }
+            .block1 input{
+                width: 70%;
+                margin-top: 3%;
+            }
+            .block{
+                width:22%;
+                font-weight: bold;                
+            }
+            .block input{
+                background-color: #e8ecef;
+                margin-top: 3%;
+                width: 100%;
+            }
+            input, select{
+                padding: 2%;
+                border: 1px #e8ecef solid;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="block1">
+                Введите сумму:
+                <div>
+                    <input type="text" id="amount">
+                    <select name="currencies" id="cur">
+                        <option value="kzt">KZT</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                    </select>
+                </div>
+            </div>
+            <div class="block">
+                KZT(tenge)
+                <div><input type="text" name="" id="kz"></div>
+            </div>
+            <div class="block">
+                USD(dollar)
+                <div><input type="text" name="" id="us"></div>
+            </div>  
+            <div class="block">
+                EUR(euro)
+                <div><input type="text" name="" id="eu"></div>
+            </div>  
+        </div>
+        <script>
+            document.addEventListener('click',calc)
+            document.addEventListener('keyup', calc)
+            function calc(){
+                if(document.getElementById('cur').value=='kzt' && document.getElementById('amount').value!=""){
+                    document.getElementById('kz').value="-"
+                    document.getElementById('us').value=(parseInt(document.getElementById('amount').value)/431).toFixed(2)
+                    document.getElementById('eu').value=(parseInt(document.getElementById('amount').value)/509).toFixed(2)
+                }
+                if(document.getElementById('cur').value=='usd' && document.getElementById('amount').value!=""){
+                    document.getElementById('kz').value=(parseInt(document.getElementById('amount').value)*429).toFixed(2)
+                    document.getElementById('us').value="-"
+                    document.getElementById('eu').value=(parseInt(document.getElementById('amount').value)*429/507).toFixed(2)
+                }
+                if(document.getElementById('cur').value=='eur' && document.getElementById('amount').value!=""){
+                    document.getElementById('kz').value=(parseInt(document.getElementById('amount').value)*507).toFixed(2)
+                    document.getElementById('us').value=(parseInt(document.getElementById('amount').value)*507/429).toFixed(2)
+                    document.getElementById('eu').value="-"
+                }
+            }
+        </script>
+    </body>
+</html>
