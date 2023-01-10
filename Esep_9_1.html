@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>
+            Esep_9_1
+        </title>
+        <style>
+            body{
+                display:flex;
+                justify-content: center;
+            }
+            .main{
+                width:70%;
+                display:flex;
+            }
+            .left{
+                width: 20%;
+            }
+            .right{
+                width:20%;
+                padding: 1%;
+            }
+            input, select{
+                margin: 3%;
+            }
+            button{
+                background-color: black;
+                color: white;
+                padding:2%;
+            }
+            .btn2{
+                background-color: grey;
+                border-color: grey;
+            }
+        </style>
+    </head>
+    <body onload="fillform()">
+        <div class="main">
+            <div class="left">
+                <p>NAME:</p>
+                <p>SURNAME:</p>
+                <p>COUNTRY:</p>
+                <p>PHONE NUMBER:</p>
+                <button>REGISTER</button>
+                <button onclick="save()" class="btn2">SAVE TO DRAFT</button>
+            </div>
+            <div class="right">
+                <input type="text" id="name">
+                <input type="text" id="surname">
+                <select name="" id="country">
+                    <option value="KAZAKHSTAN">KAZAKHSTAN</option>
+                    <option value="USA">USA</option>
+                    <option value="UKRAIN">UKRAIN</option>
+                    <option value="AUSTRALIA">AUSTRALIA</option>
+                </select>
+                <input type="text" id="phone">
+            </div>
+        </div>
+        <script>
+            function save(){     
+                let user={  name:document.getElementById('name').value,
+                            surname:document.getElementById('surname').value,
+                            country:document.getElementById('country').value,
+                            phone:document.getElementById('phone').value
+                         }
+                localStorage.setItem('first', JSON.stringify(user))
+            }
+            function fillform(){
+                let user=JSON.parse(localStorage.first)
+                document.getElementById('name').value=user.name
+                surname:document.getElementById('surname').value=user.surname
+                country:document.getElementById('country').value=user.country
+                phone:document.getElementById('phone').value=user.phone
+            }
+            
+        </script>
+    </body>
+</html>

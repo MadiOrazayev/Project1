@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>
+            Esep_9_2
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            .main{
+                width:25%;
+            }
+            .block{
+                border: 1px grey solid;
+                margin: 1%;
+            }
+            .title{
+                font-weight: bold;
+                margin:3%;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .characteristic{
+                margin: 3%;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: small;
+            }
+            button{
+                margin: 3%;
+                padding: 1%;
+                background-color: green;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="block">
+                <p class="title"><span id="title1">IPhone 12 Pro</span> - <span id="price1">1200 USD</span></p>
+                <p class="characteristic" id="characteristic">6GB RAM, Memory 128GB, double front back camera</p>
+                <button id="btn1">+ ADD TO BASKET</button>
+            </div>
+            <div class="block">
+                <p class="title"><span id="title2">XIAOMI REDMI NOTE 8</span> - <span id="price2">250 USD</span></p>
+                <p class="characteristic" id="characteristic">6GB RAM, Memory 64GB, 3 cameras in the back</p>
+                <button id="btn2">+ ADD TO BASKET</button>
+            </div>
+            <div class="block">
+                <p class="title"><span id="title3">ASUS Tuf gaming Pro</span> - <span id="price3">1500 USD</span></p>
+                <p class="characteristic" id="characteristic">24GB RAM, SSD 1 TB, RX Radeon</p>
+                <button id="btn3">+ ADD TO BASKET</button>
+            </div>
+            <div class="block">
+                <p class="title"><span id="title4">Samsung Galaxy Note 13</span> - <span id="price4">999 USD</span></p>
+                <p class="characteristic" id="characteristic">4GB RAM, Memory 256GB, front-back cameras</p>
+                <button id="btn4">+ ADD TO BASKET</button>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('click',add)
+            function add(){
+                if(event.target.id=='btn1'){
+                    let a={title:document.getElementById('title1').innerText, price:document.getElementById('price1').innerText}
+                    localStorage.setItem("rec1",JSON.stringify(a))
+                }
+                if(event.target.id=='btn2'){
+                    let a={title:document.getElementById('title2').innerText, price:document.getElementById('price2').innerText}
+                    localStorage.setItem("rec2",JSON.stringify(a))
+                }
+                if(event.target.id=='btn3'){
+                    let a={title:document.getElementById('title3').innerText, price:document.getElementById('price3').innerText}
+                    localStorage.setItem("rec3",JSON.stringify(a))
+                }
+                if(event.target.id=='btn4'){
+                    let a={title:document.getElementById('title4').innerText, price:document.getElementById('price4').innerText}
+                    localStorage.setItem("rec4",JSON.stringify(a))
+                }
+            }
+        </script>
+    </body>
+</html>

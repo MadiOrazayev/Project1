@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            Esep_9_2_2
+        </title>
+        <style>
+            div{
+                border: 2px black solid;
+            }
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            .main{
+                width:50%;
+            }
+            .bold{
+                font-weight: bold;
+            }
+            .line{
+                display: flex;
+                justify-content: space-around;
+                border-bottom: 2px black solid;
+            }
+            .p0{
+                width: 50%;
+            }
+            .p1{
+                width:20%;
+            }
+            .p2{
+                width:15%;
+            }
+            button{
+                margin-top: 1%;
+                margin-bottom: 1%;
+                background-color: red;
+                color: white;
+            }
+        </style>
+    </head>
+    <body onload="start()">
+        <div class="main" id="main">
+            <div class="line">
+                <p class="p0 bold">NAME</p>
+                <p class="p1 bold">PRICE</p>
+                <p class="p2 bold">REMOVE</p>
+            </div>
+        </div>
+        <script>
+            function start(){
+            a=JSON.parse(localStorage.getItem('rec1'))
+            let ad=document.createElement('div')
+            ad.className="line"
+            ad.innerHTML='<p class="p0">'+a.title+'</p>'
+                        +'<p class="p1">'+a.price+'</p>'
+                        +'<button class="p2">- REMOVE</button>'
+            document.getElementById("main").append(ad)
+            }
+        </script>
+    </body>
+</html>
