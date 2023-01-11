@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            Esep_9_2
+            Esep_9_2_1
         </title>
         <style>
             body{
@@ -31,10 +31,14 @@
                 background-color: green;
                 color: white;
             }
+            a{
+                margin:2%;
+            }
         </style>
     </head>
     <body>
         <div class="main">
+            <a href="Esep_9_2_2.html">Go to Basket</a>
             <div class="block">
                 <p class="title"><span id="title1">IPhone 12 Pro</span> - <span id="price1">1200 USD</span></p>
                 <p class="characteristic" id="characteristic">6GB RAM, Memory 128GB, double front back camera</p>
@@ -57,23 +61,25 @@
             </div>
         </div>
         <script>
+            let tovary=4
             document.addEventListener('click',add)
+            let items=[]
             function add(){
-                if(event.target.id=='btn1'){
-                    let a={title:document.getElementById('title1').innerText, price:document.getElementById('price1').innerText}
-                    localStorage.setItem("rec1",JSON.stringify(a))
-                }
-                if(event.target.id=='btn2'){
-                    let a={title:document.getElementById('title2').innerText, price:document.getElementById('price2').innerText}
-                    localStorage.setItem("rec2",JSON.stringify(a))
-                }
-                if(event.target.id=='btn3'){
-                    let a={title:document.getElementById('title3').innerText, price:document.getElementById('price3').innerText}
-                    localStorage.setItem("rec3",JSON.stringify(a))
-                }
-                if(event.target.id=='btn4'){
-                    let a={title:document.getElementById('title4').innerText, price:document.getElementById('price4').innerText}
-                    localStorage.setItem("rec4",JSON.stringify(a))
+                if(JSON.parse(localStorage.getItem('rec'))==null) items=[]
+                else items=JSON.parse(localStorage.getItem('rec'))
+                for(let i=1; i<=tovary;i++){
+                    if(event.target.id=='btn'+i){
+                        let item={id:i,title:document.getElementById('title'+i).innerText, price:document.getElementById('price'+i).innerText}
+                        let exist=false
+                        
+                        for(let it of items){
+                            if(JSON.stringify(it)==JSON.stringify(item)) exist=true
+                        }
+                        if(!exist){
+                            items.push(item)
+                            localStorage.setItem("rec",JSON.stringify(items))
+                        }
+                    }
                 }
             }
         </script>

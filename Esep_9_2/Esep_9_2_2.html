@@ -4,15 +4,12 @@
             Esep_9_2_2
         </title>
         <style>
-            div{
-                border: 2px black solid;
-            }
             body{
                 display: flex;
                 justify-content: center;
             }
             .main{
-                width:50%;
+                width:40%;
             }
             .bold{
                 font-weight: bold;
@@ -21,15 +18,22 @@
                 display: flex;
                 justify-content: space-around;
                 border-bottom: 2px black solid;
+                height: 6%;
+            }
+            .line2{
+                border-bottom: 1px grey solid;
             }
             .p0{
                 width: 50%;
+                margin: auto;
             }
             .p1{
-                width:20%;
+                width:15%;
+                margin: auto;
             }
             .p2{
                 width:15%;
+                margin: auto;
             }
             button{
                 margin-top: 1%;
@@ -37,25 +41,38 @@
                 background-color: red;
                 color: white;
             }
+            a{
+                margin:3%;
+            }
         </style>
     </head>
-    <body onload="start()">
+    <body onload="show()">
         <div class="main" id="main">
+            <a href="Esep_9_2_1.html">Go Back</a>
             <div class="line">
                 <p class="p0 bold">NAME</p>
                 <p class="p1 bold">PRICE</p>
                 <p class="p2 bold">REMOVE</p>
             </div>
         </div>
-        <script>
-            function start(){
-            a=JSON.parse(localStorage.getItem('rec1'))
-            let ad=document.createElement('div')
-            ad.className="line"
-            ad.innerHTML='<p class="p0">'+a.title+'</p>'
-                        +'<p class="p1">'+a.price+'</p>'
-                        +'<button class="p2">- REMOVE</button>'
-            document.getElementById("main").append(ad)
+        <script>            
+            function show(){
+                for(let item of items){
+                    let ad=document.createElement('div')
+                    ad.className="line line2"
+                    ad.id='block'+item.id
+                    ad.innerHTML='<p class="p0">'+item.title+'</p>'
+                                +'<p class="p1">'+item.price+'</p>'
+                                +'<button class="p2" id="'+item.id+'">- REMOVE</button>'
+                    document.getElementById("main").append(ad)
+                }
+            }
+            document.addEventListener('click',remove)      
+            items=JSON.parse(localStorage.getItem('rec'))      
+            function remove(){
+                        items = items.filter(item => item.id != event.target.id)
+                        localStorage.setItem("rec",JSON.stringify(items))
+                        document.getElementById('block'+event.target.id).remove()
             }
         </script>
     </body>
